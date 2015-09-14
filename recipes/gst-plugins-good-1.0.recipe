@@ -7,8 +7,8 @@ class Recipe(recipe.Recipe):
     licenses = [License.LGPLv2Plus]
     config_sh = 'sh ./autogen.sh --noconfigure && ./configure'
     configure_options = '--disable-examples --disable-oss4 --disable-oss --disable-dv1394 --disable-aalib --disable-libcaca --disable-jack --disable-shout2 '
-    remotes = {'origin': 'git://anongit.freedesktop.org/gstreamer/gst-plugins-good'}
-    commit = 'dd1bd2beb33e3e430f9bc92df1f5cdd12b0e0bd9'
+    remotes = {'origin': 'https://github.com/multipath-rtp/gst-plugins-good-m'}
+    commit = 'c4ef5c22084b0a1e526b412a5b86b80130b80d7a'
     deps = ['gstreamer-1.0', 'gst-plugins-base-1.0', 'orc', 'bzip2', 'zlib',
             'libvpx']
 
