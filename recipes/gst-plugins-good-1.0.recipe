@@ -8,7 +8,7 @@ class Recipe(recipe.Recipe):
     config_sh = 'sh ./autogen.sh --noconfigure && ./configure'
     configure_options = '--disable-examples --disable-oss4 --disable-oss --disable-dv1394 --disable-aalib --disable-libcaca --disable-jack --disable-shout2 '
     remotes = {'origin': 'https://github.com/multipath-rtp/gst-plugins-good-m'}
-    commit = 'c4ef5c22084b0a1e526b412a5b86b80130b80d7a'
+    commit = '1c8039b80e71100ddbeda336827ac39b1248c4d4'
     deps = ['gstreamer-1.0', 'gst-plugins-base-1.0', 'orc', 'bzip2', 'zlib',
             'libvpx']
 
@@ -33,6 +33,7 @@ class Recipe(recipe.Recipe):
              'lib/gstreamer-1.0/libgstrtp%(mext)s',
              'lib/gstreamer-1.0/libgstrtpmanager%(mext)s',
              'lib/gstreamer-1.0/libgstudp%(mext)s',
+             'lib/gstreamer-1.0/libgstmprtp%(mext)s',
     ]
 
     files_plugins_vis = [
