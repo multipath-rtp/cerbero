@@ -47,7 +47,7 @@ class Recipe(recipe.Recipe):
     # Dependencies used in the dynamic (shared) build of OWRTC
     _dynamic_deps = ['libnice', 'gstreamer-1.0', 'gst-plugins-base-1.0',
                      'gst-plugins-good-1.0', 'gst-plugins-bad-1.0',
-                     'openwebrtc-gst-plugins']
+                     'openwebrtc-gst-plugins', 'gst-mprtp']
     # Dependencies used only in the static build of OWRTC
     _static_deps = [i + '-static' for i in _dynamic_deps] + \
                    ['openwebrtc-girepository']

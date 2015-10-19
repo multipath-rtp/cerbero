@@ -2,56 +2,36 @@
 
 
 class Recipe(recipe.Recipe):
-    name = 'gst-plugins-good-1.0'
+    name = 'gst-mprtp'
     version = '1.5'
     licenses = [License.LGPLv2Plus]
     config_sh = 'sh ./autogen.sh --noconfigure && ./configure'
-    configure_options = '--disable-examples --disable-oss4 --disable-oss --disable-dv1394 --disable-aalib --disable-libcaca --disable-jack --disable-shout2 '
-    remotes = {'origin': 'git://anongit.freedesktop.org/gstreamer/gst-plugins-good'}
-    commit = 'dd1bd2beb33e3e430f9bc92df1f5cdd12b0e0bd9'
+    configure_options = ' '
+    remotes = {'origin': 'https://github.com/multipath-rtp/gst-mprtp'}
+    commit = 'ed031b6ca3bc08219f85e8f55810b79369bd7d5b'
     deps = ['gstreamer-1.0', 'gst-plugins-base-1.0', 'orc', 'bzip2', 'zlib',
             'libvpx']
 
 
-    files_lang = ['gst-plugins-good-1.0']
+    files_lang = ['gst-mprtp']
 
-    files_plugins_core = [
-             'lib/gstreamer-1.0/libgstvideofilter%(mext)s',
-    ]
+    files_plugins_core = []
 
-    files_plugins_effects = [
-             'lib/gstreamer-1.0/libgstvideocrop%(mext)s',
-    ]
+    files_plugins_effects = []
 
-    files_plugins_codecs = [
-             'lib/gstreamer-1.0/libgstalaw%(mext)s',
-             'lib/gstreamer-1.0/libgstmulaw%(mext)s',
-             'lib/gstreamer-1.0/libgstvpx%(mext)s',
-    ]
+    files_plugins_codecs = []
 
     files_plugins_net = [
-             'lib/gstreamer-1.0/libgstrtp%(mext)s',
-             'lib/gstreamer-1.0/libgstrtpmanager%(mext)s',
-             'lib/gstreamer-1.0/libgstudp%(mext)s',
+             'lib/gstreamer-1.0/libgstmprtp%(mext)s',
     ]
 
-    files_plugins_vis = [
-            ]
+    files_plugins_vis = []
 
     files_plugins_capture = []
 
     files_plugins_sys = []
 
     platform_files_plugins_sys = {
-        Platform.WINDOWS: [
-             'lib/gstreamer-1.0/libgstdirectsoundsink%(mext)s',
-            ],
-        Platform.DARWIN: [
-             'lib/gstreamer-1.0/libgstosxaudio%(mext)s',
-            ],
-        Platform.IOS: [
-             'lib/gstreamer-1.0/libgstosxaudio%(mext)s'
-        ]
     }
 
     def prepare(self):
@@ -66,8 +46,6 @@ class Recipe(recipe.Recipe):
             self.configure_options += ' --disable-aalib --disable-esd '
         if self.config.target_platform == Platform.LINUX:
             self.use_system_libs = True
-            self.files_plugins_capture += ['lib/gstreamer-1.0/libgstvideo4linux2%(mext)s']
-            self.files_plugins_sys += ['lib/gstreamer-1.0/libgstpulse%(mext)s']
         else:
             self.configure_options += ' --disable-gst_v4l2'
             self.configure_options += ' --disable-pulse'
