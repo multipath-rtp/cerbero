@@ -8,7 +8,7 @@ class Recipe(recipe.Recipe):
     config_sh = 'sh ./autogen.sh --noconfigure && ./configure'
     configure_options = ' '
     remotes = {'origin': 'https://github.com/multipath-rtp/gst-mprtp'}
-    commit = 'ed031b6ca3bc08219f85e8f55810b79369bd7d5b'
+    commit = 'd25901701df6c475da9a3309eee97f126f3ab0a7'
     deps = ['gstreamer-1.0', 'gst-plugins-base-1.0', 'orc', 'bzip2', 'zlib',
             'libvpx']
 
