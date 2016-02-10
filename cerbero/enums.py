@@ -72,6 +72,7 @@ class DistroVersion:
     UBUNTU_TRUSTY = 'ubuntu_trusty'
     UBUNTU_UTOPIC = 'ubuntu_utopic'
     UBUNTU_VIVID = 'ubuntu_vivid'
+    UBUNTU_WILY = 'ubuntu_wily'
     FEDORA_16 = 'fedora_16'
     FEDORA_17 = 'fedora_17'
     FEDORA_18 = 'fedora_18'
@@ -79,6 +80,7 @@ class DistroVersion:
     FEDORA_20 = 'fedora_20'
     FEDORA_21 = 'fedora_21'
     FEDORA_22 = 'fedora_22'
+    FEDORA_23 = 'fedora_23'
     REDHAT_6 = 'redhat_6'
     REDHAT_7 = 'redhat_7'
     ARCH_ROLLING = 'rolling'
@@ -89,6 +91,7 @@ class DistroVersion:
     WINDOWS_VISTA = 'windows_vista'
     WINDOWS_7 = 'windows_7'
     WINDOWS_8 = 'windows_8'
+    WINDOWS_10 = 'windows_10'
     OS_X_MAVERICKS = 'osx_mavericks'
     OS_X_MOUNTAIN_LION = 'osx_mountain_lion'
     OS_X_YOSEMITE = 'osx_yosemite'
@@ -103,6 +106,8 @@ class DistroVersion:
     IOS_8_3 = 'ios_8_3'
     IOS_8_4 = 'ios_8_4'
     IOS_9_0 = 'ios_9_0'
+    IOS_9_1 = 'ios_9_1'
+    IOS_9_2 = 'ios_9_2'
     ANDROID_GINGERBREAD = 'android_gingerbread'  # API Level 9
     ANDROID_ICE_CREAM_SANDWICH = 'android_ice_cream_sandwich'  # API Level 14
     ANDROID_JELLY_BEAN = 'android_jelly_bean'  # API Level 16

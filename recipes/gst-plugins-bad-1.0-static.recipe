@@ -3,7 +3,7 @@
 
 class Recipe(custom.GStreamerStatic):
     name = 'gst-plugins-bad-1.0-static'
-    version = '1.5'
+    version = '1.7'
     gstreamer_version = '1.0'
     licenses = [License.LGPLv2Plus]
     extra_configure_options = '--disable-gsm --disable-festival \
@@ -15,13 +15,13 @@ class Recipe(custom.GStreamerStatic):
         --disable-mpeg2enc --disable-mplex --disable-musepack --disable-mythtv \
         --disable-neon --disable-ofa --disable-openal --disable-opencv \
         --disable-pvr --disable-sdl --disable-sndfile --disable-soundtouch \
-        --disable-spandsp --disable-teletextdec --disable-timidity \
+        --disable-teletextdec --disable-timidity \
         --disable-vdpau --disable-voamrwbenc --disable-wildmidi \
         --disable-xvid --disable-zbar --disable-sdi --disable-hls --disable-qt'
     remotes = {'origin': 'git://anongit.freedesktop.org/gstreamer/gst-plugins-bad'}
-    commit = '88d7b22d40e25e4e6efc33aa4838f67fe72cad2e'
+    commit = '81692a99f3fd941101595eabfedfa5e3598b7cf3'
     deps = ['gstreamer-1.0', 'gst-plugins-base-1.0', 'zlib', 'openh264', 'opus',
-            'libsrtp', 'openssl']
+            'libsrtp', 'openssl', 'graphene']
     use_system_libs = True
 
     files_plugins_effects_devel = [
@@ -97,6 +97,12 @@ class Recipe(custom.GStreamerStatic):
     }
 
     files_plugins_sys  = []
+
+    platform_files_codecs_devel = {
+        Platform.ANDROID: [
+              'share/gst-android/ndk-build',
+            ]
+    }
 
     def prepare(self):
         self.append_env['CFLAGS'] = " -Wno-error -DGSTREAMER_GLIB_COCOA_NSAPPLICATION=1 "

@@ -10,9 +10,11 @@ class Recipe(recipe.Recipe):
     tarball_dirname = 'gettext-%(version)s'
     url = 'http://ftp.gnu.org/pub/gnu/gettext/gettext-0.19.5.1.tar.gz'
     platform_deps = {
-            Platform.DARWIN:  ['libiconv', 'sed'],
+            Platform.DARWIN:  ['sed'],
             Platform.WINDOWS: ['libiconv', 'mingw-runtime'],}
     configure_options = ' --disable-java --disable-csharp --disable-native-java --without-csv'
+    patches = ['../gettext/0001-Fix-linker-error-redefinition-of-vasprintf.patch',
+               '../gettext/0001-Undefine-__USE_MINGW_ANSI_STDIO-as-otherwise-stdio.h.patch' ]
 
     def prepare(self):
         if self.config.target_platform == Platform.WINDOWS:
