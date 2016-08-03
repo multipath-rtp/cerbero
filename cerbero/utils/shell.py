@@ -113,7 +113,7 @@ def _fix_mingw_cmd(path):
     return ''.join(l_path)
 
 
-def call(cmd, cmd_dir='.', fail=True, env=None):
+def call(cmd, cmd_dir='.', fail=True, env=None, verbose=False):
     '''
     Run a shell command
 
@@ -121,14 +121,15 @@ def call(cmd, cmd_dir='.', fail=True, env=None):
     @type cmd: str
     @param cmd_dir: directory where the command will be run
     @param cmd_dir: str
-    @param fail: wheter to raise an exception if the command failed or not
+    @param fail: whether or not to raise an exception if the command fails
     @type fail: bool
     '''
     try:
-        if not LOGFILE is None:
-            LOGFILE.write("Running command '%s'\n" % cmd)
+        if LOGFILE is None:
+            if verbose:
+                m.message("Running command '%s'" % cmd)
         else:
-            m.message("Running command '%s'" % cmd)
+            LOGFILE.write("Running command '%s'\n" % cmd)
         shell = True
         if PLATFORM == Platform.WINDOWS:
             # windows do not understand ./

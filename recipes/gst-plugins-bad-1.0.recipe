@@ -3,7 +3,7 @@
 
 class Recipe(recipe.Recipe):
     name = 'gst-plugins-bad-1.0'
-    version = '1.7'
+    version = '1.9'
     licenses = [License.LGPLv2Plus]
     config_sh = 'sh ./autogen.sh --noconfigure && ./configure'
     configure_options = '--enable-static --disable-introspection --disable-gsm \
@@ -15,7 +15,7 @@ class Recipe(recipe.Recipe):
         --disable-ladspa --disable-lv2 --disable-mimic --disable-modplug \
         --disable-mpeg2enc --disable-mplex --disable-musepack --disable-mythtv \
         --disable-neon --disable-ofa --disable-openal --disable-opencv \
-        --disable-pvr --disable-sdl --disable-sndfile --disable-soundtouch \
+        --disable-pvr --disable-sdl --disable-sndfile \
         --disable-teletextdec --disable-timidity \
         --disable-vdpau --disable-voamrwbenc --disable-wildmidi \
         --disable-xvid --disable-zbar --disable-sdi --disable-hls --disable-qt'
@@ -23,9 +23,9 @@ class Recipe(recipe.Recipe):
     configure_options += ' --enable-openh264 --enable-opus \
         --enable-srtp'
     remotes = {'origin': 'git://anongit.freedesktop.org/gstreamer/gst-plugins-bad'}
-    commit = '81692a99f3fd941101595eabfedfa5e3598b7cf3'
+    commit = '34c88dca2d977638bf6669d321bf92eea566cbf3'
     deps = ['gstreamer-1.0', 'gst-plugins-base-1.0', 'zlib', 'openh264', 'opus',
-            'libsrtp', 'openssl']
+            'libsrtp', 'openssl', 'graphene']
     use_system_libs = True
 
     files_lang = ['gst-plugins-bad-1.0']
@@ -34,7 +34,18 @@ class Recipe(recipe.Recipe):
 
     files_plugins_devel = [
         'include/gstreamer-1.0/gst/gl',
-        'lib/gstreamer-1.0/include/gst/gl'
+        'lib/gstreamer-1.0/include/gst/gl',
+        'include/gstreamer-1.0/gst/base',
+        'include/gstreamer-1.0/gst/audio',
+        'include/gstreamer-1.0/gst/video',
+        'include/gstreamer-1.0/gst/codecparsers',
+        'include/gstreamer-1.0/gst/interfaces',
+        'lib/pkgconfig/gstreamer-plugins-bad-1.0.pc',
+        'lib/pkgconfig/gstreamer-gl-1.0.pc',
+        'lib/pkgconfig/gstreamer-bad-base-1.0.pc',
+        'lib/pkgconfig/gstreamer-bad-audio-1.0.pc',
+        'lib/pkgconfig/gstreamer-bad-video-1.0.pc',
+        'lib/pkgconfig/gstreamer-codecparsers-1.0.pc'
     ]
 
     files_plugins_effects = [
@@ -43,7 +54,6 @@ class Recipe(recipe.Recipe):
 
     files_plugins_codecs = [
              'lib/gstreamer-1.0/libgstopenh264%(mext)s',
-             'lib/gstreamer-1.0/libgstopus%(mext)s',
              'lib/gstreamer-1.0/libgstvideoparsersbad%(mext)s',
     ]
 

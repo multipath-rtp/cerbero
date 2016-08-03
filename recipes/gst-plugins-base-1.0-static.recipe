@@ -3,13 +3,13 @@
 
 class Recipe(custom.GStreamerStatic):
     name = 'gst-plugins-base-1.0-static'
-    version = '1.7'
+    version = '1.9'
     gstreamer_version = '1.0'
     licenses = [License.LGPLv2Plus]
     extra_configure_options = "--enable-static"
     remotes = {'origin': 'git://anongit.freedesktop.org/gstreamer/gst-plugins-base'}
-    commit = '641428966e09d16b0a46540040f2faf3791eb7c9'
-    deps = ['glib', 'gstreamer-1.0', 'zlib', 'orc']
+    commit = '5de9d5809b7b843424740dfdbb12dae238e21fef'
+    deps = ['glib', 'gstreamer-1.0', 'zlib', 'orc', 'opus']
     use_system_libs = True
 
     files_plugins_core_devel = [
@@ -25,6 +25,10 @@ class Recipe(custom.GStreamerStatic):
              'libgstvideotestsrc',
              'libgstvolume',
     ]
+
+    files_plugins_codecs_devel = [
+             'libgstopus',
+            ]
 
     def prepare(self):
         self.append_env['CFLAGS'] = " -Wno-error "

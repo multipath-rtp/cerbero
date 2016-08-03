@@ -38,8 +38,12 @@ class Architecture:
 
     @staticmethod
     def is_arm(arch):
+        '''Returns whether the architecture is an ARM based one.
+        Note that it will include 32bit *and* 64bit ARM targets. If you
+        wish to do something special for 64bit you should first check for
+        that before calling this method.'''
         return arch in [Architecture.ARM, Architecture.ARMv7,
-                Architecture.ARMv7S]
+                Architecture.ARMv7S, Architecture.ARM64]
 
 
 class Distro:
@@ -52,6 +56,7 @@ class Distro:
     OS_X = 'osx'
     IOS = 'ios'
     ANDROID = 'android'
+    GENTOO = 'gentoo'
     NONE = 'none'
 
 
@@ -73,6 +78,7 @@ class DistroVersion:
     UBUNTU_UTOPIC = 'ubuntu_utopic'
     UBUNTU_VIVID = 'ubuntu_vivid'
     UBUNTU_WILY = 'ubuntu_wily'
+    UBUNTU_XENIAL = 'ubuntu_xenial'
     FEDORA_16 = 'fedora_16'
     FEDORA_17 = 'fedora_17'
     FEDORA_18 = 'fedora_18'
@@ -81,9 +87,11 @@ class DistroVersion:
     FEDORA_21 = 'fedora_21'
     FEDORA_22 = 'fedora_22'
     FEDORA_23 = 'fedora_23'
+    FEDORA_24 = 'fedora_24'
     REDHAT_6 = 'redhat_6'
     REDHAT_7 = 'redhat_7'
     ARCH_ROLLING = 'rolling'
+    GENTOO_VERSION = 'gentoo-version'
     OPENSUSE_12_1 = 'opensuse_12_1'
     OPENSUSE_12_2 = 'opensuse_12_2'
     OPENSUSE_12_3 = 'opensuse_12_3'
@@ -96,10 +104,6 @@ class DistroVersion:
     OS_X_MOUNTAIN_LION = 'osx_mountain_lion'
     OS_X_YOSEMITE = 'osx_yosemite'
     OS_X_EL_CAPITAN = 'osx_el_capitan'
-    IOS_6_0 = 'ios_6_0'
-    IOS_6_1 = 'ios_6_1'
-    IOS_7_0 = 'ios_7_0'
-    IOS_7_1 = 'ios_7_1'
     IOS_8_0 = 'ios_8_0'
     IOS_8_1 = 'ios_8_1'
     IOS_8_2 = 'ios_8_2'
@@ -108,6 +112,7 @@ class DistroVersion:
     IOS_9_0 = 'ios_9_0'
     IOS_9_1 = 'ios_9_1'
     IOS_9_2 = 'ios_9_2'
+    IOS_9_3 = 'ios_9_3'
     ANDROID_GINGERBREAD = 'android_gingerbread'  # API Level 9
     ANDROID_ICE_CREAM_SANDWICH = 'android_ice_cream_sandwich'  # API Level 14
     ANDROID_JELLY_BEAN = 'android_jelly_bean'  # API Level 16

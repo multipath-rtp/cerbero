@@ -3,12 +3,12 @@
 
 class Recipe(recipe.Recipe):
     name = 'gst-plugins-ugly-1.0'
-    version = '1.7'
+    version = '1.9'
     licenses = [License.LGPLv2Plus]
     config_sh = 'sh ./autogen.sh --noconfigure && ./configure'
     configure_options = "--disable-examples --disable-iec958 --disable-mpegstream --disable-cdio --disable-sidplay --disable-twolame "
     remotes = {'origin': 'git://anongit.freedesktop.org/gstreamer/gst-plugins-ugly'}
-    commit = '11904d63bea8d361e6d1d3a77cc815f4d0812651'
+    commit = '89a76036ab21ae3daae16d49a3602927dd1d507f'
     deps = ['gstreamer-1.0', 'gst-plugins-base-1.0', 'x264']
 
     files_plugins_codecs_restricted = [

@@ -3,12 +3,12 @@
 
 class Recipe(recipe.Recipe):
     name = 'gst-plugins-good-1.0'
-    version = '1.7'
+    version = '1.9'
     licenses = [License.LGPLv2Plus]
     config_sh = 'sh ./autogen.sh --noconfigure && ./configure'
     configure_options = '--disable-examples --disable-oss4 --disable-oss --disable-dv1394 --disable-aalib --disable-libcaca --disable-jack --disable-shout2 '
     remotes = {'origin': 'git://anongit.freedesktop.org/gstreamer/gst-plugins-good'}
-    commit = 'e244b9be878be123fe1e436982d66fec2c105785'
+    commit = '9abc31df1a498a13e255a899756efc9ca4b299a4'
     deps = ['gstreamer-1.0', 'gst-plugins-base-1.0', 'orc', 'bzip2', 'zlib',
             'libvpx']
 
